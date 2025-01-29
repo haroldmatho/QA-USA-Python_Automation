@@ -46,3 +46,9 @@ class TestUrbanRoutes:
         # Add in S8
         print("function created for car search model appears")
         pass
+
+    def test_order_2_ice_creams(self):
+        # Add in S8
+        for i in range(2):  # Loop to iterate twice
+            # Add in S8
+            pass
