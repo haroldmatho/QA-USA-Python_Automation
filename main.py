@@ -1,54 +1,39 @@
 import data
 import helpers
+from pages import UrbanRoutesPage # Import the page class
+
 class TestUrbanRoutes:
-    @classmethod
-    def setup_class(cls):
-            if helpers.is_url_reachable(data.URBAN_ROUTES_URL):
-                print("Connected to the Urban Routes server")
-            else:
-                print("Cannot connect to Urban Routes. Check the server is on and still running")
+    # ... (setup_class and teardown_class remain the same)
+
     def test_set_route(self):
-        # Add in S8
-        print("function created for set route")
-        pass
+        page = UrbanRoutesPage(self.driver)
+        page.set_address(data.ADDRESS_FROM, data.ADDRESS_TO)
 
     def test_select_plan(self):
-        # Add in S8
-        print("function created for select plan")
-        pass
+        page = UrbanRoutesPage(self.driver)
+        page.select_supportive_plan()
 
     def test_fill_phone_number(self):
-        # Add in S8
-        print("function created for fill phone number")
-        pass
+        page = UrbanRoutesPage(self.driver)
+        page.fill_phone_number(data.PHONE_NUMBER)
 
     def test_fill_card(self):
-        # Add in S8
-        print("function created for fill card")
-        pass
+        page = UrbanRoutesPage(self.driver)
+        page.add_credit_card(data.CARD_NUMBER, data.CARD_CODE)
 
     def test_comment_for_driver(self):
-        # Add in S8
-        print("function created for comment for driver")
-        pass
+        page = UrbanRoutesPage(self.driver)
+        page.write_comment_for_driver(data.MESSAGE_FOR_DRIVER)
 
     def test_order_blanket_and_handkerchiefs(self):
-        # Add in S8
-        print("function created for order blanket and handkerchiefs")
-        pass
+        page = UrbanRoutesPage(self.driver)
+        page.order_blanket_and_handkerchiefs()
 
     def test_order_2_ice_creams(self):
-        # Add in S8
-        print("function created for order 2 ice creams")
-        pass
+        page = UrbanRoutesPage(self.driver)
+        page.order_ice_creams(2) # Moved the loop here
 
     def test_car_search_model_appears(self):
-        # Add in S8
-        print("function created for car search model appears")
-        pass
-
-    def test_order_2_ice_creams(self):
-        # Add in S8
-        for i in range(2):  # Loop to iterate twice
-            # Add in S8
-            pass
+        page = UrbanRoutesPage(self.driver)
+        page.order_taxi()
+        assert page.is_car_search_modal_visible(), "Car search modal did not appear."
